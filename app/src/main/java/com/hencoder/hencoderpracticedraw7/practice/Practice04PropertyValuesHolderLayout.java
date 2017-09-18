@@ -1,8 +1,11 @@
 package com.hencoder.hencoderpracticedraw7.practice;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
@@ -35,6 +38,12 @@ public class Practice04PropertyValuesHolderLayout extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 // 使用 PropertyValuesHolder.ofFloat() 来创建不同属性的动画值方案
+                PropertyValuesHolder holder1 = PropertyValuesHolder.ofFloat("scaleX",0,1);
+                PropertyValuesHolder holder2 = PropertyValuesHolder.ofFloat("scaleY",0,1);
+                PropertyValuesHolder holder3 = PropertyValuesHolder.ofFloat("alpha",0,1);
+                ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view,holder1,holder2,holder3);
+                /*animator.setDuration(1000).setInterpolator(new LinearInterpolator());*/
+                animator.start();
                 // 第一个： scaleX 从 0 到 1
                 // 第二个： scaleY 从 0 到 1
                 // 第三个： alpha 从 0 到 1
